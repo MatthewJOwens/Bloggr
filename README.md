@@ -32,6 +32,7 @@ You will need to fullfill the following user stories:
 - "As a user, I can login to see my `profile page`, so that I can see all of my blogs"
 - "As a user, I can create, edit and delete blogs, so that I can easily create content to share with others"
 - "As a user, I can create, edit and delete comments on the `blog page`, so that I can provide feedback to other writers on their blog"
+- "Once logged in, Users can Create, Edit, and Delete blogs"
 
 These user stories can be implemented as a stretch goals
 
