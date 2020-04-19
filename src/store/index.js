@@ -9,6 +9,7 @@ Vue.use(Vuex);
 let _api = axios.create({
   baseURL: 'https://cw-bloggr.herokuapp.com/api/',
   timeout: 3000,
+  withCredentials: true
 })
 
 export default new Vuex.Store({
@@ -44,6 +45,14 @@ export default new Vuex.Store({
         let res = await _api.get('blogs')
         console.log(res.data)
         commit("getBlogs", res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async addBlog({ commit, dispatch }, newBlog) {
+      try {
+        let res = await _api.post('blogs', newBlog)
+        dispatch('getBlogs')
       } catch (error) {
         console.error(error)
       }

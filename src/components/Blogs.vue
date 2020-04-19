@@ -1,6 +1,6 @@
 <template>
-  <div class="blogs">
-    <!-- <CreateBlog v-if="$auth.isAuthenticated">CreateBlog component not loaded.</CreateBlog> -->
+  <div class="blogs row justify-content-center">
+    <CreateBlog v-if="$auth.isAuthenticated">CreateBlog component not loaded.</CreateBlog>
     <Blog v-for="blog in blogs" :key="blog._id" :blogData="blog">Blog components not loaded.</Blog>
   </div>
 </template>
@@ -8,7 +8,7 @@
 
 <script>
 import Blog from "@/components/Blog.vue";
-// import CreateBlog from "@/components/CreateBlog.vue";
+import CreateBlog from "@/components/CreateBlog.vue";
 export default {
   name: "blogs",
   data() {
@@ -26,8 +26,8 @@ export default {
   },
   methods: {},
   components: {
-    Blog
-    // CreateBlog
+    Blog,
+    CreateBlog
   }
 };
 </script>

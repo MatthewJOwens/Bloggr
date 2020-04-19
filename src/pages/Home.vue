@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home container-fluid">
     <Blogs>Blogs component not loaded.</Blogs>
   </div>
 </template>
