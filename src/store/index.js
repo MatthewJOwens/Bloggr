@@ -1,7 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import router from "../router";
-import axios from "axios"
 import { api } from "./AxiosStore";
 
 Vue.use(Vuex);
@@ -12,6 +11,7 @@ export default new Vuex.Store({
     profile: {},
     blogs: [],
     activeProfile: {},
+    activeBlog: {},
   },
   mutations: {
     setProfile(state, profile) {
@@ -22,6 +22,9 @@ export default new Vuex.Store({
     },
     setActiveProfile(state, profile) {
       state.activeProfile = profile
+    },
+    setActiveBlog(state, blog) {
+      state.activeBlog = blog
     },
   },
   actions: {
@@ -56,6 +59,14 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-
+    async getBlogById({ commit, dispatch }, id) {
+      try {
+        let res = await api.get('blogs/' + id)
+        console.log(res.data)
+        commit("setActiveBlog", res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    }
   },
 });
