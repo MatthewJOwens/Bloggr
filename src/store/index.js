@@ -6,16 +6,12 @@ import { api } from "./AxiosStore";
 
 Vue.use(Vuex);
 
-let _api = axios.create({
-  baseURL: 'https://cw-bloggr.herokuapp.com/api/',
-  timeout: 3000,
-  withCredentials: true
-})
 
 export default new Vuex.Store({
   state: {
     profile: {},
     blogs: [],
+    activeProfile: {},
   },
   mutations: {
     setProfile(state, profile) {
@@ -23,7 +19,10 @@ export default new Vuex.Store({
     },
     getBlogs(state, blogs) {
       state.blogs = blogs
-    }
+    },
+    setActiveProfile(state, profile) {
+      state.activeProfile = profile
+    },
   },
   actions: {
     setBearer({ }, bearer) {
@@ -42,7 +41,7 @@ export default new Vuex.Store({
     },
     async getBlogs({ commit, dispatch }) {
       try {
-        let res = await _api.get('blogs')
+        let res = await api.get('blogs')
         console.log(res.data)
         commit("getBlogs", res.data)
       } catch (error) {
@@ -51,11 +50,12 @@ export default new Vuex.Store({
     },
     async addBlog({ commit, dispatch }, newBlog) {
       try {
-        let res = await _api.post('blogs', newBlog)
+        let res = await api.post('blogs', newBlog)
         dispatch('getBlogs')
       } catch (error) {
         console.error(error)
       }
     },
+
   },
 });

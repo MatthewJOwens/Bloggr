@@ -6,7 +6,8 @@
     <p>
       <small>
         <b>from</b>
-        : {{blogData.creator.name}}
+        :
+        <a @click="setActiveUser(blogData.creator)">{{blogData.creator.name}}</a>
       </small>
     </p>
   </div>
@@ -21,7 +22,15 @@ export default {
     return {};
   },
   computed: {},
-  methods: {},
+  methods: {
+    setActiveUser(creator) {
+      this.$store.commit("setActiveProfile", creator);
+      this.$router.push({
+        name: "ProfileDetails",
+        params: { email: this.blogData.creator.email }
+      });
+    }
+  },
   components: {}
 };
 </script>

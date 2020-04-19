@@ -20,6 +20,12 @@ const routes = [
     component: Profile,
     beforeEnter: authGuard,
   },
+  {
+    path: "/profile/:email",
+    name: "ProfileDetails",
+    // @ts-ignore
+    component: () => import(/*webpackChunkName: "profile-details" */ '../pages/ProfileDetails.vue')
+  }
 ];
 
 const router = new VueRouter({
