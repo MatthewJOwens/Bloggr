@@ -5,7 +5,7 @@
     <p>{{blogData.body}}</p>
     <p>
       <small>
-        <b>from</b>
+        <b>from</b>:
         <a @click="setActiveUser(blogData.creator)">{{blogData.creator.name}}</a>
       </small>
     </p>
