@@ -1,5 +1,5 @@
 <template>
-  <div class="blog col-10 shadow border my-3 p-2 bg-light" @click="setActiveBlog()">
+  <div class="blog col-10 shadow border my-2 p-2 bg-light" @click="setActiveBlog()">
     <!-- <img :src="blogData.imgUrl" class="img-fluid" :alt="blogData.title" /> -->
     <h4>{{blogData.title}}</h4>
     <!-- <p>{{blogData.body}}</p> -->
