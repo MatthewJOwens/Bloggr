@@ -1,8 +1,8 @@
 <template>
   <div class="blog col-10 shadow border my-3 p-2 bg-light" @click="setActiveBlog()">
-    <img :src="blogData.imgUrl" class="img-fluid" :alt="blogData.title" />
+    <!-- <img :src="blogData.imgUrl" class="img-fluid" :alt="blogData.title" /> -->
     <h4>{{blogData.title}}</h4>
-    <p>{{blogData.body}}</p>
+    <!-- <p>{{blogData.body}}</p> -->
     <p>
       <small>
         <b>from</b>:
