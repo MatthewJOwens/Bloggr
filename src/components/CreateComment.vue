@@ -35,11 +35,12 @@ export default {
 
       this.$store.dispatch("addComment", this.newComment);
       this.newComment = {};
+
       this.$router.push({
         name: "BlogDetails",
         params: this.$route.params.id
       });
-      this.$store.commit("setActiveBlog", blog);
+      // this.$store.commit("setActiveBlog", blog);
     }
   },
   components: {}
